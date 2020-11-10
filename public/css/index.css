@@ -28,6 +28,7 @@ li {
   width: 100%;
   height: 100%;
   opacity: 0.6;
+  display: none;
   z-Index: 999;
 }
 #login {
@@ -41,6 +42,7 @@ li {
   bottom: 0;
   margin: auto;
   z-index: 9999;
+  display: none;
 }
 #login input {
   outline: none;
@@ -150,20 +152,6 @@ li {
   float: right;
   position: relative;
 }
-#header .list .list-contant .list-right .block {
-  width: 316px;
-  height: 90px;
-  display: none;
-  line-height: 90px;
-  text-align: center;
-  font-size: 12px;
-  color: #424242;
-  position: absolute;
-  right: 10px;
-  top: -50px;
-  background-color: #fff;
-  transition: all 0.2s;
-}
 #header .list .list-contant .list-right a {
   color: #b0b0b0;
   font-size: 12px;
@@ -177,12 +165,26 @@ li {
 #header .list .list-contant .list-right .three {
   margin: 0 10px;
 }
-#header .list .list-contant .list-right a:nth-last-child(2) {
+#header .list .list-contant .list-right a:nth-last-child(1) {
   text-align: center;
   width: 120px;
   height: 40px;
   margin: 0 10px;
   background-color: #424242;
+}
+#header .list .list-contant .list-right a:nth-last-child(1) .block {
+  width: 316px;
+  height: 90px;
+  line-height: 90px;
+  text-align: center;
+  font-size: 12px;
+  color: #424242;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  z-index: 99;
+  background-color: #fff;
 }
 #header .list .list-contant .list-right .sign {
   font-size: 12px;
@@ -215,6 +217,7 @@ li {
   height: 88px;
   padding-top: 12px;
   margin: 0 auto;
+  position: relative;
 }
 #header .search .logo {
   display: block;
@@ -258,6 +261,94 @@ li {
 }
 #header .search .search-list {
   float: left;
+}
+#header .search .search-list .search-list-noll {
+  width: 100%;
+  height: 201px;
+  position: absolute;
+  left: 0;
+  top: 70px;
+  z-index: 50;
+}
+#header .search .search-list .search-list-noll .noll-top {
+  z-index: 50;
+}
+#header .search .search-list .search-list-noll .search-list-noll-phone,
+#header .search .search-list .search-list-noll .search-list-noll-red,
+#header .search .search-list .search-list-noll .search-list-noll-tv,
+#header .search .search-list .search-list-noll .search-list-noll-book,
+#header .search .search-list .search-list-noll .search-list-noll-jd,
+#header .search .search-list .search-list-noll .search-list-noll-use,
+#header .search .search-list .search-list-noll .search-list-noll-it {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  border-top: 2px solid #e0e0e0;
+}
+#header .search .search-list .search-list-noll .search-list-noll-phone li,
+#header .search .search-list .search-list-noll .search-list-noll-red li,
+#header .search .search-list .search-list-noll .search-list-noll-tv li,
+#header .search .search-list .search-list-noll .search-list-noll-book li,
+#header .search .search-list .search-list-noll .search-list-noll-jd li,
+#header .search .search-list .search-list-noll .search-list-noll-use li,
+#header .search .search-list .search-list-noll .search-list-noll-it li {
+  width: 240px;
+  height: 201px;
+  padding: 35px 12px 0;
+  float: left;
+  list-style: none;
+  text-align: center;
+}
+#header .search .search-list .search-list-noll .search-list-noll-phone li:nth-child(2n),
+#header .search .search-list .search-list-noll .search-list-noll-red li:nth-child(2n),
+#header .search .search-list .search-list-noll .search-list-noll-tv li:nth-child(2n),
+#header .search .search-list .search-list-noll .search-list-noll-book li:nth-child(2n),
+#header .search .search-list .search-list-noll .search-list-noll-jd li:nth-child(2n),
+#header .search .search-list .search-list-noll .search-list-noll-use li:nth-child(2n),
+#header .search .search-list .search-list-noll .search-list-noll-it li:nth-child(2n) {
+  width: 2px;
+  height: 100px;
+  background-color: #e0e0e0;
+  padding: 0;
+  margin-top: 35px;
+}
+#header .search .search-list .search-list-noll .search-list-noll-phone li img,
+#header .search .search-list .search-list-noll .search-list-noll-red li img,
+#header .search .search-list .search-list-noll .search-list-noll-tv li img,
+#header .search .search-list .search-list-noll .search-list-noll-book li img,
+#header .search .search-list .search-list-noll .search-list-noll-jd li img,
+#header .search .search-list .search-list-noll .search-list-noll-use li img,
+#header .search .search-list .search-list-noll .search-list-noll-it li img {
+  width: 160px;
+  height: 110px;
+}
+#header .search .search-list .search-list-noll .search-list-noll-phone li div,
+#header .search .search-list .search-list-noll .search-list-noll-red li div,
+#header .search .search-list .search-list-noll .search-list-noll-tv li div,
+#header .search .search-list .search-list-noll .search-list-noll-book li div,
+#header .search .search-list .search-list-noll .search-list-noll-jd li div,
+#header .search .search-list .search-list-noll .search-list-noll-use li div,
+#header .search .search-list .search-list-noll .search-list-noll-it li div {
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+}
+#header .search .search-list .search-list-noll .search-list-noll-phone li p,
+#header .search .search-list .search-list-noll .search-list-noll-red li p,
+#header .search .search-list .search-list-noll .search-list-noll-tv li p,
+#header .search .search-list .search-list-noll .search-list-noll-book li p,
+#header .search .search-list .search-list-noll .search-list-noll-jd li p,
+#header .search .search-list .search-list-noll .search-list-noll-use li p,
+#header .search .search-list .search-list-noll .search-list-noll-it li p {
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #ff6700;
 }
 #header .search .search-list > a {
   display: block;
@@ -317,6 +408,12 @@ li {
   color: #757575;
   list-style: none;
 }
+.right-nav li:hover p {
+  color: #ff6700;
+}
+.right-nav li:hover span {
+  color: #ff6700;
+}
 .right-nav li .iconfont {
   font-size: 30px;
   color: #757575;
@@ -337,7 +434,11 @@ li {
 }
 #carousel-example-generic .carousel-indicators {
   width: 100px;
+  z-index: 10px;
   left: 120%;
+}
+#carousel-example-generic .nav-list-dian {
+  z-index: 15;
 }
 #carousel-example-generic .nav-left-list {
   width: 240px;
@@ -350,22 +451,104 @@ li {
   margin-bottom: 0;
   background: rgba(105, 101, 101, 0.6);
 }
-#carousel-example-generic .nav-left-list li {
+#carousel-example-generic .nav-left-list .nav-noll {
+  width: 960px;
+  height: 450px;
+  position: absolute;
+  left: 240px;
+  top: 0;
+}
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-phone,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-tv,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-book,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-jd,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-cx,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-it,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-dy,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-son,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-yx,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-sh {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  display: none;
+}
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-phone ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-tv ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-book ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-jd ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-cx ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-it ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-dy ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-son ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-yx ul,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-sh ul {
+  float: left;
+}
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-phone ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-tv ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-book ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-jd ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-cx ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-it ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-dy ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-son ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-yx ul > li,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-sh ul > li {
+  list-style: none;
+  width: 240px;
+  height: 75px;
+  line-height: 64px;
+  padding: 18px 20px;
+}
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-phone ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-tv ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-book ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-jd ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-cx ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-it ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-dy ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-son ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-yx ul > li img,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-sh ul > li img {
+  width: 40px;
+  height: 40px;
+  float: left;
+  line-height: 40px;
+}
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-phone ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-tv ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-book ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-jd ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-cx ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-it ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-dy ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-son ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-yx ul > li p,
+#carousel-example-generic .nav-left-list .nav-noll .nav-nall-sh ul > li p {
+  font-size: 14px;
+  color: #333;
+  float: left;
+  line-height: 40px;
+}
+#carousel-example-generic .nav-left-list > li {
   list-style: none;
   width: 240px;
   line-height: 42px;
   position: relative;
 }
-#carousel-example-generic .nav-left-list li:hover {
+#carousel-example-generic .nav-left-list > li:hover {
   background-color: #ff7300;
 }
-#carousel-example-generic .nav-left-list li a {
+#carousel-example-generic .nav-left-list > li a {
   margin-left: 30px;
   color: #ffffff;
   text-decoration: none;
   font-size: 16px;
 }
-#carousel-example-generic .nav-left-list li .iconfont {
+#carousel-example-generic .nav-left-list > li .iconfont {
   font-size: 12px;
   color: #ffffff;
   position: absolute;
