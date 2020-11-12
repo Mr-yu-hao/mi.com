@@ -5,6 +5,7 @@ const path = require('path');
 const usersRouter = require('./router/users');
 const app = express();
 const cookieParser = require('cookie-parser');
+const createError = require('http-errors')
 const productRouter = require('./router/product');
 
 let conf = {
@@ -24,6 +25,15 @@ app.use(cookieParser());
 app.use('/users', usersRouter);
 app.use('/product', productRouter);
 
+
+app.use(function(req, res, next) {
+    next(createError(404));
+})
+
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.redirect('/html/404.html');
+});
 
 app.listen(conf.port, conf.host, () => {
     console.log(`server is running on http://${conf.host}:${conf.port}`);

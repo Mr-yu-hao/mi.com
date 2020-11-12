@@ -2,8 +2,7 @@ const express = require('express');
 const conn = require('../dao/conn');
 const router = express.Router(); //获得一个路由对象
 const crypto = require('crypto');
-const { log } = require('console');
-console.log(conn);
+// console.log(conn);
 router.route('/')
     .get((req, res, next) => {
         res.json({ 'method': 'get' });
@@ -13,25 +12,42 @@ router.route('/')
     });
 router.route('/reg')
     .post((req, res, next) => {
-        // console.log(req.body);
-        let md5 = crypto.createHash('md5');
-        let passResult = md5.update(req.body.password).digest('hex');
-        // console.log(passResult);
-        let sql = `insert into users(user_name, user_password, user_email, user_phone, user_address) values('${req.body.username}','${passResult}','${req.body.email}','${req.body.phone}','${req.body.address}')`;
-        // console.log(sql);
 
-        conn.query(sql, (err, result) => {
+        // console.log(conn)
+        // console.log(req.body);
+
+        let searchUser = `select * from users where user_name = '${req.body.username}'`;
+
+        conn.query(searchUser, (err, results) => {
             if (err) console.log(err);
-            console.log(result);
-            if (result.insertId) {
-                // console.log(cookies);
-                res.cookie('username', req.body.username);
-                res.cookie('isLogined', true);
-                res.json({ msg: "注册成功" });
+            if (results.length) {
+                res.json({ msg: '用户名已存在', username: req.body.username, error: 1 })
             } else {
-                res.json({ msg: "用户名已存在" })
+                let md5 = crypto.createHash('md5');
+                let passResult = md5.update(req.body.userpassword).digest('hex');
+                let sql = `insert into users (user_name, user_password) values('${req.body.username}','${passResult}')`;
+                // console.log(sql);
+                conn.query(sql, (err, result) => {
+                    if (err) console.log(err);
+                    // console.log(1);
+                    console.log(result.insertId);
+                    if (result.insertId) {
+                        // console.log(res.cookie);
+                        res.cookie('username', req.body.username);
+                        res.cookie('isLogined', true);
+                        res.json({ msg: "注册成功" });
+                    } else {
+                        res.json({
+                            msg: "用户名已存在",
+                            username: req.body.username,
+                            error: 0
+                        })
+                    }
+                });
             }
-        });
+        })
+
+
     });
 
 router.route('/login')

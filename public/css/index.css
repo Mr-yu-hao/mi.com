@@ -44,6 +44,28 @@ li {
   z-index: 9999;
   display: none;
 }
+#login #log-tab {
+  width: 410px;
+  height: 268px;
+  position: absolute;
+  top: 83px;
+  left: 0;
+}
+#login #qr {
+  position: absolute;
+  top: 83px;
+  left: 0;
+  width: 410px;
+  height: 267px;
+  line-height: 267px;
+  text-align: center;
+  display: none;
+  background: #fff;
+}
+#login #qr img {
+  width: 180px;
+  height: 180px;
+}
 #login input {
   outline: none;
 }
@@ -53,6 +75,8 @@ li {
   height: 83px;
   color: #666;
   display: flex;
+  position: absolute;
+  top: 0;
   justify-content: space-around;
 }
 #login .login-top li {
@@ -170,18 +194,20 @@ li {
   width: 120px;
   height: 40px;
   margin: 0 10px;
+  margin-right: 0;
   background-color: #424242;
 }
 #header .list .list-contant .list-right a:nth-last-child(1) .block {
   width: 316px;
   height: 90px;
+  display: none;
   line-height: 90px;
   text-align: center;
   font-size: 12px;
   color: #424242;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   position: absolute;
-  right: 10px;
+  right: 0px;
   top: 40px;
   z-index: 99;
   background-color: #fff;
@@ -269,6 +295,7 @@ li {
   left: 0;
   top: 70px;
   z-index: 50;
+  display: none;
 }
 #header .search .search-list .search-list-noll .noll-top {
   z-index: 50;
@@ -414,6 +441,9 @@ li {
 .right-nav li:hover span {
   color: #ff6700;
 }
+.right-nav li:last-child {
+  margin-top: 10px;
+}
 .right-nav li .iconfont {
   font-size: 30px;
   color: #757575;
@@ -428,6 +458,9 @@ li {
 }
 #carousel-example-generic .glyphicon-chevron-left {
   left: 260px;
+}
+#carousel-example-generic .glyphicon-chevron-right {
+  right: 20px;
 }
 #carousel-example-generic .left {
   z-index: 5;
@@ -449,7 +482,7 @@ li {
   z-index: 10;
   padding: 20px 0 ;
   margin-bottom: 0;
-  background: rgba(105, 101, 101, 0.6);
+  background: rgba(105, 101, 101);
 }
 #carousel-example-generic .nav-left-list .nav-noll {
   width: 960px;
@@ -457,6 +490,8 @@ li {
   position: absolute;
   left: 240px;
   top: 0;
+  display: none;
+  z-index: 0;
 }
 #carousel-example-generic .nav-left-list .nav-noll .nav-nall-phone,
 #carousel-example-generic .nav-left-list .nav-noll .nav-nall-tv,
@@ -538,9 +573,6 @@ li {
   width: 240px;
   line-height: 42px;
   position: relative;
-}
-#carousel-example-generic .nav-left-list > li:hover {
-  background-color: #ff7300;
 }
 #carousel-example-generic .nav-left-list > li a {
   margin-left: 30px;
@@ -678,6 +710,7 @@ li {
 }
 #contant .contant-row > div:nth-child(1) .count {
   width: 168px;
+  height: 46px;
   margin: 28px auto 0;
 }
 #contant .contant-row > div:nth-child(1) .count span {
@@ -788,7 +821,11 @@ li {
   flex-wrap: wrap;
   align-content: space-between;
 }
+#contant .contant-phone .phone-right a,
 #contant .contant-phone .phone-right li {
+  display: block;
+  text-decoration: none;
+  color: #333;
   list-style: none;
   width: 234px;
   height: 300px;
@@ -797,25 +834,38 @@ li {
   background-color: #fff;
   transition: all 0.2s linear;
 }
+#contant .contant-phone .phone-right a:hover,
 #contant .contant-phone .phone-right li:hover {
   transform: translateY(-5px);
   box-shadow: 5px 5px 10px rgba(66, 63, 63, 0.3);
 }
+#contant .contant-phone .phone-right a img,
 #contant .contant-phone .phone-right li img {
   width: 160px;
   height: 160px;
 }
+#contant .contant-phone .phone-right a p,
+#contant .contant-phone .phone-right li p {
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 210px;
+}
+#contant .contant-phone .phone-right a p:first-child,
 #contant .contant-phone .phone-right li p:first-child {
   font-size: 14px;
   font-weight: 400;
   color: #333;
 }
+#contant .contant-phone .phone-right a .last,
 #contant .contant-phone .phone-right li .last {
   margin: 0 10px 10px;
   height: 18px;
   font-size: 12px;
   color: #b0b0b0;
 }
+#contant .contant-phone .phone-right a span,
 #contant .contant-phone .phone-right li span {
   text-align: center;
   color: #ff6700;

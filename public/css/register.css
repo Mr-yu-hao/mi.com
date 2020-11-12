@@ -106,6 +106,7 @@ a {
   line-height: 20px;
 }
 #body .contant .contant-box .button {
+  outline: none;
   background-color: #ff6700;
   border: 1px solid rgba(186, 186, 186, 0.3);
   color: #fff;
