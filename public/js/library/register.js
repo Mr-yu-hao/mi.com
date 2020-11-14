@@ -4,6 +4,8 @@ $('.button').on('click', function() {
     // alert(2)
     // console.log(2);
     // console.log($('.password').val())
+    console.log($('.name').val());
+    console.log($.md5($('.password').val()));
     $.ajax({
         type: "post",
         url: "/users/reg",

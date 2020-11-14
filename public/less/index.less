@@ -10,6 +10,7 @@ body{
     user-select:none;
     }
     a,li{
+        text-decoration: none;
         cursor: pointer;
     }
 .icon {
@@ -141,6 +142,10 @@ body{
             height: 16px;
             margin-left: 8px;
             color: #999;
+            a{
+                text-decoration: none;
+                color: #999;
+            }
             cursor: pointer;
             &:nth-child(1){
                 padding-right: 3px;
@@ -406,6 +411,12 @@ body{
         padding-top: 15px;
         color: #757575;
         list-style: none;
+        &:nth-child(5){
+            a{
+                color: #757575;
+                text-decoration: none;
+            }
+        }
         &:hover p{
             color:#ff6700 ;
         }

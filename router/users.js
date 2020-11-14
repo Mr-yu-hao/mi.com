@@ -23,14 +23,14 @@ router.route('/reg')
             if (results.length) {
                 res.json({ msg: '用户名已存在', username: req.body.username, error: 1 })
             } else {
-                let md5 = crypto.createHash('md5');
-                let passResult = md5.update(req.body.userpassword).digest('hex');
-                let sql = `insert into users (user_name, user_password) values('${req.body.username}','${passResult}')`;
-                // console.log(sql);
+                // let md5 = crypto.createHash('md5');
+                // let passResult = md5.update(req.body.userpassword).digest('hex');
+                let sql = `insert into users (user_name, user_password) values('${req.body.username}','${req.body.userpassword}')`;
+                // console.log(req.body.username, passResult);
                 conn.query(sql, (err, result) => {
                     if (err) console.log(err);
                     // console.log(1);
-                    console.log(result.insertId);
+                    // console.log(result.insertId);
                     if (result.insertId) {
                         // console.log(res.cookie);
                         res.cookie('username', req.body.username);
@@ -52,8 +52,33 @@ router.route('/reg')
 
 router.route('/login')
     .post((req, res, next) => {
-        console.log(req.cookies);
 
+        let searchUser = `select * from users where user_name = '${req.body.username}'`;
+        // let passResult = md5.update(req.body.userpassword).digest('hex');
+        let password = `select * from users where user_password = '${req.body.userpassword}'`;
+        conn.query(searchUser, (err, resultUser) => {
+            if (err) console.log(err);
+            if (resultUser.length) {
+                conn.query(password, (err, resultpassword) => {
+                    if (err) console.log(err);
+                    if (resultpassword.length) {
+                        res.json({
+                            msg: "登录成功",
+                        })
+                    } else {
+                        res.json({
+                            msg: "密码错误",
+                        })
+                    }
+                })
+
+            } else {
+                res.json({
+                    msg: "账号错误",
+                })
+            }
+
+        })
     });
 
 module.exports = router;

@@ -11,6 +11,7 @@ body {
 }
 a,
 li {
+  text-decoration: none;
   cursor: pointer;
 }
 .icon {
@@ -145,6 +146,10 @@ li {
   margin-left: 8px;
   color: #999;
   cursor: pointer;
+}
+#login .login-botton li a {
+  text-decoration: none;
+  color: #999;
 }
 #login .login-botton li:nth-child(1) {
   padding-right: 3px;
@@ -434,6 +439,10 @@ li {
   padding-top: 15px;
   color: #757575;
   list-style: none;
+}
+.right-nav li:nth-child(5) a {
+  color: #757575;
+  text-decoration: none;
 }
 .right-nav li:hover p {
   color: #ff6700;

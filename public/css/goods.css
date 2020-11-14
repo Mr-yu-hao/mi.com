@@ -474,6 +474,7 @@ body {
   background: #ff6700;
   border-color: #ff6700;
   color: #fff;
+  cursor: pointer;
 }
 #body .body-right .payment a:last-child {
   color: #fff;
@@ -701,6 +702,17 @@ body {
   padding-top: 15px;
   color: #757575;
   list-style: none;
+  cursor: pointer;
+}
+.right-nav li:hover p {
+  color: #ff6700;
+}
+.right-nav li:hover span {
+  color: #ff6700;
+}
+.right-nav li:last-child a {
+  color: #757575;
+  text-decoration: none;
 }
 .right-nav li .iconfont {
   font-size: 30px;

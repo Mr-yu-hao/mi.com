@@ -2,6 +2,8 @@ import './jquery.js';
 
 import { baseUrl } from './config.js';
 
+import cookie from './cookie.js';
+
 let id = location.search.split('=')[1];
 // console.log(baseUrl);
 // console.log(id);
@@ -68,6 +70,44 @@ $.ajax({
         $('.body-left').html(nav);
         $('.date').html(template);
         $('.all-price').html(pay);
+        let num = 0;
+        $('.addcar').on('click', function() {
+            // console.log(cookie)
+            num++;
+            if (num > res.num) {
+                num = num;
+            }
+            $('.num').html(num);
+            // console.log(num)
+            addItem(res.id, $('.num').text());
+        })
 
     }
 });
+
+$('.gwc').on('click', function() {
+
+});
+
+function addItem(id, num) {
+    // console.log(id, num);
+    let shop = cookie.get('shop');
+    let product = {
+        id: id,
+        num: num
+    }
+    if (shop) {
+        shop = JSON.parse(shop);
+        if (shop.some(elm => elm.id == id)) {
+            shop.forEach((elm) => {
+                elm.id === id ? elm.num = num : null;
+            });
+        } else {
+            shop.push(product);
+        }
+    } else {
+        shop = [];
+        shop.push(product);
+    }
+    cookie.set('shop', JSON.stringify(shop), 1);
+}
