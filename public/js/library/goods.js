@@ -72,42 +72,48 @@ $.ajax({
         $('.all-price').html(pay);
         let num = 0;
         $('.addcar').on('click', function() {
-            // console.log(cookie)
-            num++;
+            num = num + 1;
             if (num > res.num) {
-                num = num;
+                num = res.num;
             }
-            $('.num').html(num);
+            // $('.num').html(num);
             // console.log(num)
-            addItem(res.id, $('.num').text());
+            // console.log($('.kind').text());
+            addItem(res.id, num, Number($('.kind').text()));
+            // console.log($('.num').text());
         })
 
     }
 });
 
-$('.gwc').on('click', function() {
-
-});
-
-function addItem(id, num) {
+function addItem(id, num, kind) {
     // console.log(id, num);
     let shop = cookie.get('shop');
     let product = {
         id: id,
-        num: num
+        num: num,
+        kind: kind
     }
     if (shop) {
         shop = JSON.parse(shop);
         if (shop.some(elm => elm.id == id)) {
             shop.forEach((elm) => {
-                elm.id === id ? elm.num = num : null;
+                elm.id === id ? elm.num = num : elm.kind = kind + 1;
             });
         } else {
+            // kind = kind + 1;
+            product.kind = kind + 1;
             shop.push(product);
+            $('.kind').html(kind);
+            console.log(1, $('.kind').text() + 1);
+            // num++;
         }
     } else {
+        product.kind = kind + 1;
         shop = [];
         shop.push(product);
+        $('.kind').html(kind);
+        console.log(product.kind);
     }
     cookie.set('shop', JSON.stringify(shop), 1);
 }

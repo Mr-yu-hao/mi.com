@@ -64,6 +64,7 @@ router.route('/login')
                     if (resultpassword.length) {
                         res.json({
                             msg: "登录成功",
+                            error: 1
                         })
                     } else {
                         res.json({

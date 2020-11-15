@@ -160,8 +160,8 @@ $('.button').on('click', function() {
     // console.log(2);
     // console.log($('.password').val())
 
-    console.log($('.login-shuru').val());
-    console.log($.md5($('.lo-password').val()));
+    // console.log($('.login-shuru').val());
+    // console.log($.md5($('.lo-password').val()));
 
 
     $.ajax({
@@ -174,13 +174,20 @@ $('.button').on('click', function() {
 
         dataType: "json",
         success: function(response) {
-            console.log(response);
+            console.log(response.error);
             // console.log(1)
             // if (response.error) {
             //     $('.text').html(response.msg).css('color', 'red');
             // } else {
             //     $('.text').html(response.msg).css('color', 'green');
             // }
+            if (response.error) {
+                $('#login').css('display', 'none');
+                $('#cover').css('display', 'none');
+                alert('登录成功');
+            } else {
+                alert('用户名或密码错误');
+            }
 
         }
     });

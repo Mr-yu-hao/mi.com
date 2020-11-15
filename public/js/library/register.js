@@ -17,9 +17,12 @@ $('.button').on('click', function() {
         dataType: 'json',
         success: function(response) {
             console.log(response);
-            // console.log(1)
+            console.log(location.href)
+                // console.log(1)
             if (response.error) {
                 $('.text').html(response.msg).css('color', 'red');
+                // $(location).attr('href', 'http://localhost:8088');
+                window.location.href = 'http://localhost:8088';
             } else {
                 $('.text').html(response.msg).css('color', 'green');
             }
